@@ -84,11 +84,11 @@ class CategoryViewController: UITableViewController {
     }
     
     func loadICategories(with request : NSFetchRequest<Category> = Category.fetchRequest()){
-        do {
-            categoryArray = try context.fetch(request)
-        } catch {
-            print("Error fetching data from context \(error)")
-        }
+//        do {
+//            categoryArray = try context.fetch(request)
+//        } catch {
+//            print("Error fetching data from context \(error)")
+//        }
         
         tableView.reloadData()
     }
