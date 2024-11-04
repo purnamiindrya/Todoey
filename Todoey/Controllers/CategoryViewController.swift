@@ -74,11 +74,11 @@ class CategoryViewController: UITableViewController {
     
     //MARK: - Data Manipulation Methods
     func saveCategories(){
-        do {
-            try context.save()
-        } catch{
-            print("Error saving context \(error)")
-        }
+//        do {
+//            try context.save()
+//        } catch{
+//            print("Error saving context \(error)")
+//        }
         
         tableView.reloadData()
     }
