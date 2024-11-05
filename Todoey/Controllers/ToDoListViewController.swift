@@ -54,7 +54,10 @@ class ToDoListViewController: UITableViewController{
         if let item = toDoItems?[indexPath.row] {
             do {
                 try realm.write {
-                    item.done = !item.done
+//                    item.done = !item.done
+                    
+                    //delete the item
+                    realm.delete(item)
                 }
             } catch {
                 print("Error saving done status, \(error)")
