@@ -7,9 +7,11 @@
 //
 
 import UIKit
-import CoreData
+import RealmSwift
 
 class CategoryViewController: UITableViewController {
+    
+    let realm = try! Realm()
     
     var categoryArray = [Category]()
     let dataFilePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
@@ -18,7 +20,7 @@ class CategoryViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        loadICategories()
+        loadCategories()
     }
     
     //MARK: - TableView Datasource Methods
@@ -55,11 +57,11 @@ class CategoryViewController: UITableViewController {
         let alert = UIAlertController(title: "Add New Category", message: "", preferredStyle: .alert)
         
         let action = UIAlertAction(title: "Add", style: .default) { action in
-            let newCategory = Category(context: self.context)
+            let newCategory = Category()
             newCategory.name = textField.text!
             self.categoryArray.append(newCategory)
             
-            self.saveCategories()
+            self.save(category: newCategory)
         }
         
         alert.addTextField { (alertTextField) in
@@ -73,17 +75,19 @@ class CategoryViewController: UITableViewController {
     }
     
     //MARK: - Data Manipulation Methods
-    func saveCategories(){
-       do {
-           try context.save()
-       } catch{
-           print("Error saving context \(error)")
-       }
+    func save(category: Category){
+        do {
+            try realm.write {
+                realm.add(category)
+            }
+        } catch{
+            print("Error saving context \(error)")
+        }
         
         tableView.reloadData()
     }
     
-    func loadICategories(with request : NSFetchRequest<Category> = Category.fetchRequest()){
+    func loadCategories(){
 //        do {
 //            categoryArray = try context.fetch(request)
 //        } catch {

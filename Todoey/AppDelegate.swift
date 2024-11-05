@@ -22,15 +22,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        print(NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).last! as String)
         print(Realm.Configuration.defaultConfiguration.fileURL)
         
-        let data = Data()
-        data.name = "mimi"
-        data.age = 2
-        
+//        let data = Data()
+//        data.name = "mimi"
+//        data.age = 2
+//        
         do {
             let realm = try Realm()
-            try realm.write {
-                realm.add(data)
-            }
+//            try realm.write {
+//                realm.add(data)
+//            }
         } catch {
             print("Error initializing new Realm \(error)")
         }
