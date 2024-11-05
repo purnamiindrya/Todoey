@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		8115B9EE2CD9D48B0020D63D /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 8115B9ED2CD9D48B0020D63D /* RealmSwift */; };
 		8115B9EF2CD9D49A0020D63D /* RealmSwift in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 8115B9ED2CD9D48B0020D63D /* RealmSwift */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		8115B9F22CD9D54F0020D63D /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8115B9F12CD9D54C0020D63D /* Data.swift */; };
 		8115B9FE2CD9DA660020D63D /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8115B9FD2CD9DA620020D63D /* Category.swift */; };
 		8115BA002CD9DA7F0020D63D /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8115B9FF2CD9DA7C0020D63D /* Item.swift */; };
 		81C4BF612CD71AFA0022B8AC /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C4BF602CD71AFA0022B8AC /* CategoryViewController.swift */; };
@@ -35,7 +34,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		8115B9F12CD9D54C0020D63D /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		8115B9FD2CD9DA620020D63D /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		8115B9FF2CD9DA7C0020D63D /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		81C4BF602CD71AFA0022B8AC /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
@@ -65,7 +63,6 @@
 			children = (
 				8115B9FF2CD9DA7C0020D63D /* Item.swift */,
 				8115B9FD2CD9DA620020D63D /* Category.swift */,
-				8115B9F12CD9D54C0020D63D /* Data.swift */,
 			);
 			path = "Data Model";
 			sourceTree = "<group>";
@@ -202,7 +199,6 @@
 			files = (
 				81C4BF612CD71AFA0022B8AC /* CategoryViewController.swift in Sources */,
 				8115B9FE2CD9DA660020D63D /* Category.swift in Sources */,
-				8115B9F22CD9D54F0020D63D /* Data.swift in Sources */,
 				EB2BE4FE239524DB00FB933B /* ToDoListViewController.swift in Sources */,
 				8115BA002CD9DA7F0020D63D /* Item.swift in Sources */,
 				EB2BE4FA239524DB00FB933B /* AppDelegate.swift in Sources */,
