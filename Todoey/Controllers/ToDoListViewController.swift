@@ -23,8 +23,6 @@ class ToDoListViewController: SwipeTableViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.rowHeight = 80.0
-        
         loadItems()
     }
     
@@ -77,7 +75,7 @@ class ToDoListViewController: SwipeTableViewController{
                     self.realm.delete(itemForDeletion)
                 }
             } catch {
-                print("Error deleting category, \(error)")
+                print("Error deleting item, \(error)")
             }
         }
     }
