@@ -9,10 +9,10 @@
 import UIKit
 import RealmSwift
 
-class ToDoListViewController: UITableViewController{
+class ToDoListViewController: SwipeTableViewController{
 
-    var toDoItems : Results<Item>?
     let realm = try! Realm()
+    var toDoItems : Results<Item>?
     
     var selectedCategory : Category? {
         didSet{
@@ -23,6 +23,8 @@ class ToDoListViewController: UITableViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tableView.rowHeight = 80.0
+        
         loadItems()
     }
     
@@ -30,10 +32,10 @@ class ToDoListViewController: UITableViewController{
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return toDoItems?.count ?? 1
     }
-
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ToDoItemCell", for: indexPath)
+        let cell = super.tableView(tableView, cellForRowAt: indexPath)
         
         if let item = toDoItems?[indexPath.row]{
             cell.textLabel?.text = item.title
@@ -55,9 +57,6 @@ class ToDoListViewController: UITableViewController{
             do {
                 try realm.write {
                     item.done = !item.done
-                    
-                    //delete the item
-//                    realm.delete(item)
                 }
             } catch {
                 print("Error saving done status, \(error)")
@@ -67,6 +66,20 @@ class ToDoListViewController: UITableViewController{
         tableView.reloadData()
         
         tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    //MARK: - Delete Data from Swipe
+    
+    override func updateModel(at indexPath: IndexPath) {
+        if let itemForDeletion = self.toDoItems?[indexPath.row] {
+            do {
+                try self.realm.write {
+                    self.realm.delete(itemForDeletion)
+                }
+            } catch {
+                print("Error deleting category, \(error)")
+            }
+        }
     }
     
     //MARK: - Add New Items
