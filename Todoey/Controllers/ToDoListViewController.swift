@@ -107,7 +107,6 @@ class ToDoListViewController: UITableViewController{
     
     //MARK: - Model Manipulation Methods
     
-    
     func loadItems(){
         
         toDoItems = selectedCategory?.items.sorted(byKeyPath: "dateCreated", ascending: true)
@@ -116,10 +115,6 @@ class ToDoListViewController: UITableViewController{
 
     }
     
-//    func removeItem(_ index : Int){
-//        context.delete(itemArray[index])
-//        itemArray.remove(at: index)
-//    }
 }
 
 //MARK: - Search Bar Methods
