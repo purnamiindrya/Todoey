@@ -36,13 +36,23 @@ class ToDoListViewController: SwipeTableViewController{
         let cell = super.tableView(tableView, cellForRowAt: indexPath)
         
         if let item = toDoItems?[indexPath.row]{
+            
             cell.textLabel?.text = item.title
             
-            print(item.done)
+            let color = CGFloat(indexPath.row)/CGFloat(toDoItems!.count)+0.1
+            
+            cell.backgroundColor = UIColor(hex: selectedCategory!.color).withAlphaComponent(color)
+
+            let backgroundColor = cell.backgroundColor?.adjustedColorForTransparency() ?? UIColor.white
+            
+            cell.textLabel?.textColor = backgroundColor.getContrastingTextColor()
             
             cell.accessoryType = item.done ? .checkmark : .none
+            
         }else{
+            
             cell.textLabel?.text = "No Items Added"
+            
         }
         
         return cell
